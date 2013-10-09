@@ -1,0 +1,56 @@
+\section{Introduction}
+Computational Fluid Dynamics (CFD) is a fundamental step for the study and
+optimization of electricity production. Indeed, current power plants use water
+as a mean of convective heat transfer.  Consequently, the simulation and
+visualization of fluid dynamics phenomena is of great importance for the energy
+industry. Electricité de France (EDF), being one of the biggest electricity producer in Europe, has
+developed for the past 15 years an open source CFD code named Code\_Saturne,
+allowing for the solution of very large models~\cite{5644955}. EDF has
+several supercomputers that regularly run this code in order to perform
+analysis involving large amounts of data. In this context, the visualization of
+data becomes a critical point. 
+%% =======
+
+In the past, studies and improvements in scientific simulation have been mainly
+focused on the solver, due to being the most cycle-consuming part in the
+simulation process. Thus, visualization has been traditionally run sequentially
+on a smaller computer and at the very end of the solver computation. At the
+time, this was easily explained by the small need for both memory and
+computation resources in most of the visualization cases. Nevertheless, with the
+increase of our computational capabilities, we tend to use and generate much
+more data than what we were used to. Thus, as the scale of CFD simulation
+problems is getting wider, specific issues are emerging related to input/output
+efficiency. In particular, data generated during the solver computation and
+used for the visualization are the source of a worrisome overhead. Even worse,
+some researchers are starting to spend more time for writing and reading data
+than for running solvers and visualizations~\cite{1742-6596-125-1-012099}.
+%Sometimes referred as Big Data, 
+This new trend is asking us to design new I/O strategies and consider
+visualization as a part of our high-performance simulation systems.
+
+
+Most fluid dynamic engineers at EDF R\&D are currently visualizing lower temporal and spatial 
+resolution versions of their simulations in order to avoid I/O issues when large quantities of data are involved.
+We decided to addres the subject of coprocessing and $in$-$situ$
+visualization which has been proved to be an effective solution against the current
+limitations of this problem~\cite{sandiareport}, \cite{4090186}. Our aim is to provide 
+our engineers with an operational research-oriented tool in a mid-term basis.
+%Moreover, while visualization has been traditionnally performed on smaller
+%computer, studies show that visualization algorithms can often be run
+%efficiently on recent supercomputers~\cite{4090186}. 
+For this, we choose to evaluate Catalyst as an industrial tool for performing In-Situ visualization. 
+Catalyst, developed by Kitware, is a library for Paraview that implements the
+coprocessing, by defining the visualization process through Paraview and
+exploiting the VTK's parallel algorithms for the processing of the simulation
+data~\cite{6092322}. 
+
+In this article, we propose a study upon the effectiveness and scalability of a
+prototype implementation of the coprocessing in an industrial case based on the
+coupling of Code\_Saturne with Catalyst. In section~\ref{sec:related} we
+discuss works related to recent visualization $in$-$situ$ systems. We will then
+introduce in section~\ref{sec:cs} Code\_Saturne, the CFD code developed at EDF
+R\&D. In section ~\ref{sec:catalyst} we present our integration of Catalyst into
+Code\_Saturne and how it is used by the users in the framework of fluid dynamic
+simulations. Section~\ref{sec:results} describes our use case and presents
+results on one of our corporate clusters. Finally, section~\ref{sec:conclusion} 
+presents our analysis of the results and describes our on-going and future work.

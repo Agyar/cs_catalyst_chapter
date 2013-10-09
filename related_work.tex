@@ -1,0 +1,55 @@
+\section{Related Work}
+\label{sec:related}
+
+The size of generated data has become an important subject in high performance 
+computing, due to the need of a better input/output efficiency in our computing 
+system. To answer this problem, several visualization systems has been created.
+We can distinguish two main approaches in recent solutions. The first one is to 
+integrate a specific $in$-$situ$ visualization directly to our simulation code. 
+Such an approach proved to be an efficient way to provide coprocessing for a given
+simulation plus visualization system as it is the case in the hurricane
+prediction~\cite{4015457} and earthquake~\cite{4090186} simulation systems.
+This method has been proved to lead to good performances but is limited 
+to a specific implementation. Thus it does not respond to our needs. 
+
+The second approach is to provide a general postprocessing framework letting the
+simulation and the visualization code communicate together. EPSN which is a
+general coupling system, allows for the connection of M simulation nodes to N
+visualization nodes through a network~\cite{4020782}. This solution is a
+loosely coupled approach, requiring separate resources and data transfer
+through the network. This approach presents the advantage of not overloading
+the nodes used for computation. Thus the visualization code does not interfere
+with the execution of the simulation. Based on the same approach, a ParaView
+plugin named ICARUS~\cite{6152102}
+exists. It differs from EPSN in design by lower requirements as it only needs
+the use of a single HDF5 library and file driver extension. Such solutions
+offer tools for researchers to interact with their simulations by allowing
+them, first to monitor their current states but also to modify
+some parameters of the remaining simulation steps. Those computational steering
+solutions as well as the RealityGrid
+project~\cite{Harting03computationalsteering} focus on interactivity with
+simulation whereas our main objective is to provide $in$-$situ$ visualization
+operations to researchers while minimizing input/output overhead and disk
+space use. 
+
+Both built upon the well known parallel visualization algorithms
+library VTK, VisIt~\cite{1532795} and ParaView~\cite{964413} provide through
+libsim~\cite{2386230} and Catalyst~\cite{6092322} the possibility to coprocess
+simulation data.  Those $in$-$situ$ solutions are tightly coupled and while they
+limit potential interactions with the running simulation, they also highly
+reduce the need of network data transfer. Thus, it contributes at circumventing
+the inefficiency of high performance computing input/output systems.
+Those solutions takes their benefits from directly accessing the simulation memory to
+perform visualization treatments by simply asking a pointer to the available
+data. One major drawback of this approach is the necessity to provide an
+understandable data layout to those libraries. Moreover, as this type of
+solution often gains from computing pre-determined visualization tasks, it is
+not suited for results exploration.  As building a steering solution for Code\_Saturne is out of
+the scope of this case study, we do not consider these drawbacks as a limitation. 
+
+After evaluating the performances offered by Kitware~\cite{6092322}, we choose Catalyst as our coprocessing library for our 
+case study as it answers our visualization needs while focusing on the 
+reduce of data amount use. Ultimately, Kitware is still actively developing 
+Catalyst, and we are optimistic that more services allowing the interactions
+with the running simulation will soon be available.
+
