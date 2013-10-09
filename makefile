@@ -1,4 +1,4 @@
-default: tex
+default: bib tex 
 
 tex:
 	latex chapter.tex
@@ -13,3 +13,5 @@ view:
 
 all: tex view
 
+bib: tex 
+	-@bibtex chapter.aux >/dev/null 2>&1 
