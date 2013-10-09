@@ -130,7 +130,41 @@ coprocessing implementation using Catalyst. These informations are those of our
 CASE\_B when performing a 10 steps simulation. Both size are
 expected to grow proportionally to the size of the mesh input, and the number of
 steps. Therefore, we expect the gain provided by the use of coprocessing 
-\clearpage
+to be
+increasingly interesting when moving forward in use case size.
+
+Finally, we also show the total memory use when running $in$-$situ$ visualization
+compared to writing simulation results in Ensight Gold format in
+figure~\ref{fig:mem} and~\ref{fig:204mem}. We observe that memory consumption
+is increased by an approximate factor varying from 2 to 3. This can be
+explained by both our first naive memory management approach and also by a
+natural increase in memory consumption when visualization operations are to be
+performed. Indeed, our memory management implies a consumption increased by more
+than 2,
+as we need to translate data for Catalyst but still need the former data to
+pursue our simulation. Finally it may also be taken into account the actual memory consumption of the
+chosen visualization tasks. 
+%\begin{figure}[!h]
+\begin{table}[!h]
+\centering
+\begin{tabular}{|p{3.5cm}|p{3.5cm}|}
+\hline
+\multicolumn{2}{|c|}{\textbf{*PROCESSING SIZE COMPARISON}}\\
+\hline
+STORAGE & COPROCESSING \\
+\hline 
+ %& \\
+57Gio & 1,3Mio \\
+\hline 
+\end{tabular} 
+%\vspace{-0.1in}
+\caption{CASE\_B comparison between the size of processed results and simple storage. The simulation was run on 10 steps, with 10
+pictures coprocessed.}
+\label{fig:size_tab}
+%\end{figure}
+\end{table}
+
+%\clearpage
 \begin{minipage}[t]{\textwidth}
 \begin{minipage}{0.45\linewidth}
 %\includegraphics[width=\linewidth]{/home/C26973/res.eps}
@@ -182,41 +216,4 @@ Ensight Gold format.}
 \label{fig:204mem}
 \end{minipage}
 \end{minipage}
-\clearpage
-to be
-increasingly interesting when moving forward in use case size.
-
-Finally, we also show the total memory use when running $in$-$situ$ visualization
-compared to writing simulation results in Ensight Gold format in
-figure~\ref{fig:mem} and~\ref{fig:204mem}. We observe that memory consumption
-is increased by an approximate factor varying from 2 to 3. This can be
-explained by both our first naive memory management approach and also by a
-natural increase in memory consumption when visualization operations are to be
-performed. Indeed, our memory management implies a consumption increased by more
-than 2,
-as we need to translate data for Catalyst but still need the former data to
-pursue our simulation. Finally it may also be taken into account the actual memory consumption of the
-chosen visualization tasks. 
-%\begin{figure}[!h]
-\begin{table}[!h]
-\centering
-\begin{tabular}{|p{3.5cm}|p{3.5cm}|}
-\hline
-\multicolumn{2}{|c|}{\textbf{*PROCESSING SIZE COMPARISON}}\\
-\hline
-STORAGE & COPROCESSING \\
-\hline 
- %& \\
-57Gio & 1,3Mio \\
-\hline 
-\end{tabular} 
-%\vspace{-0.1in}
-\caption{CASE\_B comparison between the size of processed results and simple storage. The simulation was run on 10 steps, with 10
-pictures coprocessed.}
-\label{fig:size_tab}
-%\end{figure}
-\end{table}
-\vspace{-0.1in}
-
-\vspace{-0.10in}
-
+%\clearpage
