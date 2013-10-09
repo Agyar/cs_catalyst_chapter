@@ -38,6 +38,15 @@
 \floatstyle{plaintop}
 \restylefloat{table}
 
+\usepackage{xr} % for cross references between different .tex files
+\externaldocument{abstract}
+\externaldocument{introduction}
+\externaldocument{related_work}
+\externaldocument{code_saturne}
+\externaldocument{using_catalyst}
+\externaldocument{results}
+\externaldocument{conclusion}
+
 \widowpenalty=10000
 \clubpenalty=10000
 \setlength{\belowcaptionskip}{+0.3ex}
@@ -67,18 +76,11 @@
 \maketitle
 
 \input{abstract}
-
 \input{introduction}
-
 \input{related_work}
-
 \input{code_saturne}
-
 \input{using_catalyst}
-
 \input{results}
-
 \input{conclusion}
-
 \input{referenc}
 \end{document}
