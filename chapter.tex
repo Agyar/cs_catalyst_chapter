@@ -39,6 +39,8 @@
 \floatstyle{plaintop}
 \restylefloat{table}
 
+\usepackage{xspace} % for CS macro
+
 \usepackage{xr} % for cross references between different .tex files
 \externaldocument{abstract}
 \externaldocument{introduction}
@@ -59,9 +61,14 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\newcommand{\CS}{%
+  {\fontfamily{ppl}\fontshape{it}\selectfont Code\_Saturne}\xspace}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{document}
 
-\title*{In-Situ Visualization in Fluid Mechanics using Open-Source tools: integration of Catalyst into Code\_Saturne}
+\title*{In-Situ Visualization in Fluid Mechanics using Open-Source tools: integration of Catalyst into \CS}
 % Use \titlerunning{Short Title} for an abbreviated version of
 % your contribution title if the original one is too long
 \author{Name of First Author and Name of Second Author}
