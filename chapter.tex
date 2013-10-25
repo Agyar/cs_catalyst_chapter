@@ -29,6 +29,8 @@
 % see the list of further useful packages
 % in the Reference Guide
 
+\usepackage[francais]{babel} % Pour Ribés
+
 \usepackage[T1]{fontenc}
 \usepackage{ae,aecompl}
 \usepackage{caption}
@@ -38,6 +40,9 @@
 \usepackage{float}
 \floatstyle{plaintop}
 \restylefloat{table}
+
+\usepackage{xspace} % for CS macro
+\newcommand{\CS}{{\fontfamily{ppl}\fontshape{it}\selectfont Code\_Saturne}\xspace}
 
 \usepackage{xr} % for cross references between different .tex files
 \externaldocument{abstract}
@@ -61,16 +66,16 @@
 
 \begin{document}
 
-\title*{In-Situ Visualization in Fluid Mechanics using Open-Source tools: integration of Catalyst into Code\_Saturne}
+\title*{In-Situ Visualization in Fluid Mechanics using Open-Source tools: integration of Catalyst into \CS}
 \titlerunning{In-Situ Visualization in Fluid Mechanics using Open-Source tools}
 % Use \titlerunning{Short Title} for an abbreviated version of
 % your contribution title if the original one is too long
-\author{Lorendeau Benjamin, Ribes Alejandro, Fournier Yvan and Jomier Julien}
+\author{Lorendeau Benjamin, Ribés Alejandro, Fournier Yvan and Jomier Julien}
 % Use \authorrunning{Short Title} for an abbreviated version of
 % your contribution title if the original one is too long
 \institute{
 Lorendeau Benjamin \at EDF R\&D, Clamart, France, \email{benjamin.lorendeau@gmail.com}
-\and Ribes Alejandro \at EDF R\&D, Clamart, France \email{alejandro.ribes@edf.fr}
+\and Ribés Alejandro \at EDF R\&D, Clamart, France \email{alejandro.ribes@edf.fr}
 \and Fournier Yvan \at EDF R\&D, Chatou, France \email{yvan.fournier@edf.fr}
 \and Jomier Julien \at Kitware, Villeurbanne, France \email{julien.jomier@kitware.com}
 }

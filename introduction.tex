@@ -4,11 +4,11 @@ optimization of electricity production. Indeed, current power plants use water
 as a mean of convective heat transfer.  Consequently, the simulation and
 visualization of fluid dynamics phenomena is of great importance for the energy
 industry. Electricité de France (EDF), being one of the biggest electricity producer in Europe, has
-developed for the past 15 years an open source CFD code named Code\_Saturne,
+developed for the past 15 years an open source CFD code named \CS,
 allowing for the solution of very large models~\cite{5644955}. EDF has
 several supercomputers that regularly run this code in order to perform
-analysis involving large amounts of data. In this context, the visualization of
-data becomes a critical point. 
+analysis involving large amounts of data. In this context, the postprocessing
+and visualization of data becomes a critical point. 
 %% =======
 
 In the past, studies and improvements in scientific simulation have been mainly
@@ -46,11 +46,11 @@ data~\cite{6092322}.
 
 In this article, we propose a study upon the effectiveness and scalability of a
 prototype implementation of the coprocessing in an industrial case based on the
-coupling of Code\_Saturne with Catalyst. In section~\ref{sec:related} we
+coupling of \CS with Catalyst. In section~\ref{sec:related} we
 discuss works related to recent visualization $in$-$situ$ systems. We will then
-introduce in section~\ref{sec:cs} Code\_Saturne, the CFD code developed at EDF
+introduce in section~\ref{sec:cs} \CS, the CFD code developed at EDF
 R\&D. In section ~\ref{sec:catalyst} we present our integration of Catalyst into
-Code\_Saturne and how it is used by the users in the framework of fluid dynamic
+\CS and how it is used by the users in the framework of fluid dynamic
 simulations. Section~\ref{sec:results} describes our use case and presents
 results on one of our corporate clusters. Finally, section~\ref{sec:conclusion} 
 presents our analysis of the results and describes our on-going and future work.

@@ -23,7 +23,7 @@ The Catalyst library can leverage ParaView's client server mechanism to allow an
 \vspace{+0.04in}
 ~\
 
-\subsection{Code\_Saturne with Catalyst}
+\subsection{\CS with Catalyst}
 
 \subsubsection{Adaptor implementation}
 Typically, computational resource requirements are primarily determined either by the time to solution,
@@ -47,12 +47,12 @@ memory. This option is indeed preferred, when possible, as it allows to decrease
 Another option is to fully or partially copy the data from the
 simulation into a VTK object, and then send this object to Catalyst.
 
-As users of Code\_Saturne are provided with several output formats and as the data
+As users of \CS are provided with several output formats and as the data
 structure in our simulation differs from the VTK data object structure, feeding
 Catalyst with a direct pointer to the simulation memory is not possible. Thus, in this configuration
 data is copied from the simulation into a VTK data object. In fact, we
  allocate a vtkDoubleArray data structure to store our data for Catalyst. Furthermore, we
-provide a pointer of this VTK data structure to Code\_Saturne so it can transform
+provide a pointer of this VTK data structure to \CS so it can transform
 its simulation data and then fill the VTK data object.
 
 The memory cost increase of our solution can be alleviated by using more
@@ -64,7 +64,7 @@ step specific outputs.
 \subsubsection{Pipeline configuration}
 
 From the point of view of an engineer performing a fluid mechanics simulation
-using Code\_Saturne, the workflow of a coprocessing-simulation is 1) to define
+using \CS, the workflow of a coprocessing-simulation is 1) to define
 a ParaView pipeline describing what the user wants to study and 2) to run the
 simulation. Since users are already familiar with fluid mechanics
 simulations, defining the pipeline for the coprocessing remains the main
@@ -97,7 +97,7 @@ performed inside the open-source SALOME~\cite{4291178} platform for numerical si
 We then generate two different meshes, one at high resolution (up to 204M
 hexahedrals in the current use cases) that will be used for the CFD
 simulation and one with a lower resolution to define the pipeline (700 000
-hexahedrals in our use cases). The lowest resolution mesh is fed into Code\_Saturne to perform a short
+hexahedrals in our use cases). The lowest resolution mesh is fed into \CS to perform a short
 simulation. This allows ParaView to obtain a representation containing not
 only the geometry but also the result fields. This is the data that is then used to define the pipeline.
 The different processing pipelines are presented next.
