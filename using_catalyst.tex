@@ -17,7 +17,7 @@ Catalyst has also been developed with features to address limitations that come 
 The Catalyst library can leverage ParaView's client server mechanism to allow an interactive ParaView client to connect to a server running inside an in situ pipeline. ParaView can then read from a Catalyst data source like it reads from a file. This offers to construct/modify a pipeline interactively in the ParaView client via this live data source. Additionally, by enabling the client-server architecture in the Catalyst library, some or all of the data analysis and visualization pipeline can offload, if desired, to a separate machine, e.g., a smaller visualization cluster with specialized graphics hardware.
 
 ~\
-\includegraphics[scale=0.65]{pictures/CatalystFullWorkFlow.eps}
+\includegraphics[scale=0.47]{pictures/CatalystFullWorkFlow.eps}
 \captionof{figure}{Overall Catalyst workflow.}
 \label{fig:catalyst}
 \vspace{+0.04in}
@@ -62,6 +62,7 @@ affordable comparatively to the time to write data to disk when storing time
 step specific outputs. 
 
 \subsubsection{Pipeline configuration}
+\label{sec:pip_conf_tools}
 
 From the point of view of an engineer performing a fluid mechanics simulation
 using \CS, the workflow of a coprocessing-simulation is 1) to define

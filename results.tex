@@ -3,13 +3,26 @@
 
 \subsection{Required User Interactions for Coprocessing}
    
-\begin{wrapfigure}{r}{0.5\textwidth}
-\vspace{-20pt}
-\includegraphics[scale=0.23]{pictures/pieceofcake.eps}
-\captionof{figure}{Original geometry for our use case}
-\label{fig:piece}
-\vspace{-30pt}
-\end{wrapfigure}
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[scale=0.195]{pictures/pieceofcake.eps}
+    %\captionof{figure}{Original geometry for our use case}
+    \captionof{figure}{}
+    \label{fig:piece}
+  \end{subfigure}
+  ~
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[scale=0.41]{pictures/res.eps}
+    %\captionof{figure}{A final coprocessed picture of our simulation. The simulation was run with 128 layers.}
+    %\captionof{figure}{A final coprocessed picture of our simulation.}
+    \captionof{figure}{}
+    \label{fig:res}
+  \end{subfigure}
+  \caption{(a) original geometry of our use case\\
+  \hspace{8em}(b)  a final coprocessed picture of our simulation}
+\end{figure}
+
 Before presenting our results we briefly describe how the user interactions was
 performed. The following steps were necessary in order to use the developed
 coprocessing technology:
@@ -44,15 +57,6 @@ time-consuming.
 %supercomputer.
 
 \subsection{Use Cases}
-\begin{wrapfigure}{r}{0.5\textwidth}
-\vspace{-20pt}
-\includegraphics[scale=0.42]{pictures/res.eps}
-%\captionof{figure}{A final coprocessed picture of our simulation. The simulation was run with 128 layers.}
-\captionof{figure}{A final coprocessed picture of our simulation.}
-\label{fig:res}
-\vspace{-20pt}
-\end{wrapfigure}
-
 
 Our simulations have been run on Ivanoe, an EDF corporate supercomputer,
 composed of 1382 nodes, each node having 12 cores for a total of 16584 cores. In
