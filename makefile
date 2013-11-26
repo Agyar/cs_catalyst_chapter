@@ -9,7 +9,7 @@ clean:
 	rm *.log *.idx *.aux *.ps *.dvi
 
 view:
-	evince chapter.pdf
+	xdg-open chapter.pdf
 
 all: tex view
 
