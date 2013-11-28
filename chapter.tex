@@ -23,15 +23,18 @@
 \usepackage{makeidx}         % allows index generation
 \usepackage{graphicx}        % standard LaTeX graphics tool
                              % when including figure files
-\usepackage{multicol}        % used for the two-column index
+%\usepackage{multicol}        % used for the two-column index
 \usepackage[bottom]{footmisc}% places footnotes at page bottom
 
 % see the list of further useful packages
 % in the Reference Guide
 
+%\usepackage[french]{babel} % Pour Ribés
+\usepackage[utf8]{inputenc}
+
 \usepackage[T1]{fontenc}
 \usepackage{ae,aecompl}
-\usepackage{caption}
+\usepackage[center]{caption} % force centering on caption
 \usepackage{subcaption}
 \captionsetup{compatibility=false}
 
@@ -40,6 +43,7 @@
 \restylefloat{table}
 
 \usepackage{xspace} % for CS macro
+\newcommand{\CS}{{\fontfamily{ppl}\fontshape{it}\selectfont Code\_Saturne}\xspace}
 
 \usepackage{xr} % for cross references between different .tex files
 \externaldocument{abstract}
@@ -69,13 +73,20 @@
 \begin{document}
 
 \title*{In-Situ Visualization in Fluid Mechanics using Open-Source tools: integration of Catalyst into \CS}
+\titlerunning{In-Situ Visualization in Fluid Mechanics using Open-Source tools}
 % Use \titlerunning{Short Title} for an abbreviated version of
 % your contribution title if the original one is too long
-\author{Name of First Author and Name of Second Author}
+\author{Lorendeau Benjamin, Rib\'{e}s Alejandro, Fournier Yvan and Jomier Julien}
 % Use \authorrunning{Short Title} for an abbreviated version of
 % your contribution title if the original one is too long
-\institute{Name of First Author \at Name, Address of Institute, \email{name@email.address}
-\and Name of Second Author \at Name, Address of Institute \email{name@email.address}}
+\institute{
+Lorendeau Benjamin \at EDF R\&D, Clamart, France, \email{benjamin.lorendeau@gmail.com}
+  \and Rib\'{e}s Alejandro \at EDF R\&D, Clamart, France \email{alejandro.ribes@edf.fr}
+\and Fournier Yvan \at EDF R\&D, Chatou, France \email{yvan.fournier@edf.fr}
+\and Jomier Julien \at Kitware, Villeurbanne, France \email{julien.jomier@kitware.com}
+}
+%\institute{Name of First Author \at Name, Address of Institute, \email{name@email.address}
+%\and Name of Second Author \at Name, Address of Institute \email{name@email.address}}
 %
 % Use the package "url.sty" to avoid
 % problems with special characters

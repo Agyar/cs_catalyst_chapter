@@ -2,6 +2,27 @@
 \label{sec:results}
 
 \subsection{Required User Interactions for Coprocessing}
+   
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[scale=0.195]{pictures/pieceofcake.eps}
+    %\captionof{figure}{Original geometry for our use case}
+    \captionof{figure}{}
+    \label{fig:piece}
+  \end{subfigure}
+  ~
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[scale=0.41]{pictures/res.eps}
+    %\captionof{figure}{A final coprocessed picture of our simulation. The simulation was run with 128 layers.}
+    %\captionof{figure}{A final coprocessed picture of our simulation.}
+    \captionof{figure}{}
+    \label{fig:res}
+  \end{subfigure}
+  \caption{(a) original geometry of our use case\\
+  \hspace{8em}(b)  a final coprocessed picture of our simulation}
+\end{figure}
+
 Before presenting our results we briefly describe how the user interactions was
 performed. The following steps were necessary in order to use the developed
 coprocessing technology:
@@ -36,7 +57,6 @@ time-consuming.
 %supercomputer.
 
 \subsection{Use Cases}
-
 
 Our simulations have been run on Ivanoe, an EDF corporate supercomputer,
 composed of 1382 nodes, each node having 12 cores for a total of 16584 cores. In
@@ -96,6 +116,45 @@ total of 10 coprocessed visualization images.
 
 %\vspace{-0.10in}
 \subsection{Results}
+
+\begin{figure}
+        \begin{subfigure}[b]{0.50\textwidth}
+          \includegraphics[scale=0.50]{pictures/test1.ps}
+                \caption{Execution time with/out coprocessing}
+                \label{fig:copro}
+        \end{subfigure}%
+        ~
+        \begin{subfigure}[b]{0.50\textwidth}
+          \includegraphics[scale=0.50]{pictures/test12.ps}
+                \caption{Execution time with/out coprocessing}
+                \label{fig:204copro}
+        \end{subfigure}%
+
+        \begin{subfigure}[b]{0.50\textwidth}
+                \includegraphics[scale=0.50]{pictures/test2.ps}
+                \caption{Execution time comparison with storage.}
+                \label{fig:ensight}
+        \end{subfigure}
+        ~
+        \begin{subfigure}[b]{0.50\textwidth}
+                \includegraphics[scale=0.50]{pictures/test22.ps}
+                \caption{Execution time comparison with storage.}
+                \label{fig:204ensight}
+        \end{subfigure}
+
+        \begin{subfigure}[b]{0.50\textwidth}
+                \includegraphics[scale=0.50]{pictures/test3.ps}
+                \caption{Memory usage comparison with storage}
+                \label{fig:mem}
+        \end{subfigure}
+        ~
+        \begin{subfigure}[b]{0.50\textwidth}
+                \includegraphics[scale=0.50]{pictures/test32.ps}
+                \caption{Memory usage comparison with storage}
+                \label{fig:204mem}
+        \end{subfigure}
+        \caption{CASE\_A (left) and CASE\_B (right) results}\label{fig:animals}
+\end{figure}
 
 Figure~\ref{fig:res} presents an image obtained from one of our $in$-$situ$
 simulations with $CASE$\_$A$.
@@ -164,56 +223,58 @@ pictures coprocessed.}
 %\end{figure}
 \end{table}
 
+
+%\vspace{+0.04in}
+%~\
+
 %\clearpage
-\begin{minipage}[t]{\textwidth}
-\begin{minipage}{0.45\linewidth}
+%\begin{minipage}[t]{\textwidth}
+%\begin{minipage}{0.45\linewidth}
 %\includegraphics[width=\linewidth]{/home/C26973/res.eps}
-\hspace{0.45in}
-\includegraphics[scale=0.45]{pictures/res.eps}
-\captionof{figure}{A final coprocessed picture of our simulation. The simulation was run with 128 layers.}
-\label{fig:res}
-\vspace{+0.04in}
-~\
-\includegraphics[scale=0.65]{pictures/test1.ps}
-\captionof{figure}{CASE\_A total execution time with and without the coprocessing.}
-\label{fig:copro}
-\vspace{+0.04in}
-~\
-\includegraphics[scale=0.65]{pictures/test2.ps}
-\captionof{figure}{CASE\_A total execution time when using coprocessing and storage in
-Ensight Gold format.}
-\label{fig:ensight}
-\vspace{+0.04in}
-~\
-\includegraphics[scale=0.65]{pictures/test3.ps}
-\captionof{figure}{CASE\_A total memory usage when using coprocessing and storage in
-Ensight Gold format.}
-\label{fig:mem}
-\end{minipage}
-\hspace{0.05\linewidth}
-\begin{minipage}{0.45\linewidth}
+%\hspace{0.45in}
+%\includegraphics[scale=0.65]{pictures/test1.ps}
+%\captionof{figure}{CASE\_A total execution time with and without the coprocessing.}
+%\label{fig:copro}
+%\vspace{+0.04in}
+%~\
+%\includegraphics[scale=0.65]{pictures/test2.ps}
+%\captionof{figure}{CASE\_A total execution time when using coprocessing and storage in
+%Ensight Gold format.}
+%\label{fig:ensight}
+%\vspace{+0.04in}
+%~\
+%\includegraphics[scale=0.65]{pictures/test3.ps}
+%\captionof{figure}{CASE\_A total memory usage when using coprocessing and storage in
+%Ensight Gold format.}
+%\label{fig:mem}
+%\end{minipage}
+%\hspace{0.05\linewidth}
+%\begin{minipage}{0.45\linewidth}
 %\includegraphics[width=\linewidth]{/home/C26973/pieceofcake.eps}
-\hspace{0.65in}
-\includegraphics[scale=0.20]{pictures/pieceofcake.eps}
-\captionof{figure}{Original geometry for our use case. The thickness is defined by layers. Here the number of layers is set to 8.}
-\label{fig:piece}
-\vspace{+0.04in}
-~\
-\includegraphics[scale=0.65]{pictures/test12.ps}
-\captionof{figure}{CASE\_B total execution time with and without the coprocessing.}
-\label{fig:204copro}
-\vspace{+0.04in}
-~\
-\includegraphics[scale=0.65]{pictures/test22.ps}
-\captionof{figure}{CASE\_B total execution time when using coprocessing and storage in
-Ensight Gold format.}
-\label{fig:204ensight}
-\vspace{+0.04in}
-~\
-\includegraphics[scale=0.65]{pictures/test32.ps}
-\captionof{figure}{CASE\_B total memory usage when using coprocessing and storage in
-Ensight Gold format.}
-\label{fig:204mem}
-\end{minipage}
-\end{minipage}
+%\hspace{0.65in}
+%\includegraphics[scale=0.65]{pictures/test12.ps}
+%\captionof{figure}{CASE\_B total execution time with and without the coprocessing.}
+%\label{fig:204copro}
+%\vspace{+0.04in}
+%~\
+%\includegraphics[scale=0.65]{pictures/test22.ps}
+%\captionof{figure}{CASE\_B total execution time when using coprocessing and storage in
+%Ensight Gold format.}
+%\label{fig:204ensight}
+%\vspace{+0.04in}
+%~\
+%\includegraphics[scale=0.65]{pictures/test32.ps}
+%\captionof{figure}{CASE\_B total memory usage when using coprocessing and storage in
+%Ensight Gold format.}
+%\label{fig:204mem}
+%\end{minipage}
+%\end{minipage}
+
+        %\caption{CASE\_A results}\label{fig:animals}
+%\end{figure}
+%~
+%\begin{figure}
+
+
+
 %\clearpage
