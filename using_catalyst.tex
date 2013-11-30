@@ -25,9 +25,68 @@ The Catalyst library can leverage ParaView's client server mechanism to allow an
 
 \subsection{\CS with Catalyst}
 
+Using Catalyst with \CS is quite straightforward, and fits
+quite naturally in the existing architecture, which we describe first.
+
+\subsubsection{Pre-existing post-processing architecture}
+
+To make it possible to work with large meshes and potientally long-running
+simulations of unsteady flows, multiple postprocessing-related features
+are available in the code. The user may specify 3D visualisation
+output of selected main and auxiliary variables, time-plot data output
+for selected cell values (``probes''), and 1-D profiles, as well as
+choose to compute and log or output additional values by programming
+a user function called at the end of each time step.
+In this way, low-volume and global variables may be output
+at each time step, and higher-volume output may be output with lower
+frequency.
+
+Mesh-based postprocessing output uses the concepts of \emph{meshes}
+and \emph{writers}, as shown in the following figure:
+
+~\
+\includegraphics[scale=0.3]{pictures/cs_post.eps}
+\captionof{figure}{\CS postprocessing output subsystem.}
+\label{fig:cs_post}
+\vspace{+0.04in}
+~\
+
+A postprocessing mesh may be any sub-mesh of the computation mesh (or even
+a separate auxiliary mesh in some cases), which may optionnaly
+be redefined over time steps, while a writer is a combination of the
+selection of an output format (such as EnSight gold, MED, or CGNS),
+an output frequency, sub-directory and file name prefix,
+and additional metadata specifying for example whether associated meshes
+will be fixed or time varying (if the selected format supports it).
+To each postprocessing \emph{mesh} may be associated a list of
+\emph{writers} among those defined (an empty list meaning no output).
+By default, the global volume mesh and boundary \emph{meshes} are
+associated to a main \emph{writer}, whose default settings include the
+EnSight gold format and output at the last time step only.
+The user may modify those settings and associations, as well as
+define additional \emph{meshes} and \emph{writers}, both using
+the GUI and user functions (useful for more advanced cases
+and finer control).
+Using this system, output at different mesh formats, with different
+frequencies, and possibly different variables may be generated
+simultaneously, allowing fine tuning depending on the indended
+usage.
+
+\CS suggests a clear separation of tasks best handed by the code
+or those handled by external tools. For example, although computing
+a gradient may be handled directly by visualization tools, it is
+best done in the user-defined output of the code itself, to ensure
+it is done in a manner consistent with the discretization, and
+exploiting the knowledge of prescribed boundary conditions.
+On the other hand, postprocessing \emph{meshes} are defined as
+subsets of the computational mesh, but generation of clips and slices
+are not handled by the code, as it is expected visualization tools
+may handled those geometric operations. Both may be combined: for example,
+a volume sub-mesh involving cells around a clip plane may be output
+by \CS, reducing the data that needs to be handled by a visualization
+tool to produce that clip.
+
 \subsubsection{Adaptor implementation}
-Typically, computational resource requirements are primarily determined either by the time to solution,
-or the size of the model. For time to solution, the number of cores is selected in order to solve the problem in a given time. For size of model, the number of cores is selected in order to the model into available memory. 
 When embedding Catalyst there is always a non-zero cost in terms of time, memory and the number of processors. Naively, one could simply
 address these issues by simply requesting a greater number of processors, but in most cases this simply is
 not possible or practical. Therefore, great care must be taken in the construction of the adaptors.
