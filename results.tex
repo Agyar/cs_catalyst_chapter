@@ -122,6 +122,18 @@ total of 10 coprocessed visualization images.
 
 \begin{figure}
         \begin{subfigure}[b]{0.50\textwidth}
+                \includegraphics[scale=0.50]{pictures/test41.ps}
+                \caption{Time overhead of storage}
+                \label{fig:over}
+        \end{subfigure}
+        ~
+        \begin{subfigure}[b]{0.50\textwidth}
+                \includegraphics[scale=0.50]{pictures/test42.ps}
+                \caption{Time overhead of storage}
+                \label{fig:204over}
+        \end{subfigure}
+
+        \begin{subfigure}[b]{0.50\textwidth}
           \includegraphics[scale=0.50]{pictures/test1.ps}
                 \caption{Execution time with/out coprocessing}
                 \label{fig:copro}
@@ -144,18 +156,6 @@ total of 10 coprocessed visualization images.
                 \caption{Execution time comparison with storage.}
                 \label{fig:204ensight}
         \end{subfigure}
-
-        \begin{subfigure}[b]{0.50\textwidth}
-                \includegraphics[scale=0.50]{pictures/test3.ps}
-                \caption{Memory usage comparison with storage}
-                \label{fig:mem}
-        \end{subfigure}
-        ~
-        \begin{subfigure}[b]{0.50\textwidth}
-                \includegraphics[scale=0.50]{pictures/test32.ps}
-                \caption{Memory usage comparison with storage}
-                \label{fig:204mem}
-        \end{subfigure}
         \caption{CASE\_A (left) and CASE\_B (right) results}\label{fig:animals}
 \end{figure}
 
@@ -163,7 +163,17 @@ Figure~\ref{fig:res} presents an image obtained from one of our $in$-$situ$
 simulations with $CASE$\_$A$.
 We see the flux of water moving around the vertical cylinders, the glyphs being attached 
 to the velocity vectorial field. The color of the volume rendering represents 
-the turbulent viscosity of the fluid. Figure~\ref{fig:copro} shows two graphs of
+the turbulent viscosity of the fluid. 
+
+We establish first the overhead induced by storing our simulation results in
+figure~\ref{fig:over} and~\ref{fig:204over}. We observe an average of 18\% and
+14\% of time used to store results, for $CASE$\_$A$ and $CASE$\_$B$
+respectively. This overhead tends to increase with the number of processes in
+use. It is also not stable and subject to important variations with a peak at
+26\%. We thus emphasize the storing process as a bottleneck in every day CFD
+studies for its average overhead and its high instability in execution time.
+
+Figure~\ref{fig:copro} shows two graphs of
 $CASE$\_$A$: in red the execution 
 time versus the number of cores, in blue the execution time without
 the coprocessing overload. We are satisfied by this overload that is contained
@@ -195,17 +205,17 @@ steps. Therefore, we expect the gain provided by the use of coprocessing
 to be
 increasingly interesting when moving forward in use case size.
 
-Finally, we also show the total memory use when running $in$-$situ$ visualization
-compared to writing simulation results in Ensight Gold format in
-figure~\ref{fig:mem} and~\ref{fig:204mem}. We observe that memory consumption
-is increased by an approximate factor varying from 2 to 3. This can be
-explained by both our first naive memory management approach and also by a
-natural increase in memory consumption when visualization operations are to be
-performed. Indeed, our memory management implies a consumption increased by more
-than 2,
-as we need to translate data for Catalyst but still need the former data to
-pursue our simulation. Finally it may also be taken into account the actual memory consumption of the
-chosen visualization tasks. 
+%Finally, we also show the total memory use when running $in$-$situ$ visualization
+%compared to writing simulation results in Ensight Gold format in
+%figure~\ref{fig:over} and~\ref{fig:204over}. We observe that memory consumption
+%is increased by an approximate factor varying from 2 to 3. This can be
+%explained by both our first naive memory management approach and also by a
+%natural increase in memory consumption when visualization operations are to be
+%performed. Indeed, our memory management implies a consumption increased by more
+%than 2,
+%as we need to translate data for Catalyst but still need the former data to
+%pursue our simulation. Finally it may also be taken into account the actual memory consumption of the
+%chosen visualization tasks. 
 %\begin{figure}[!h]
 \begin{table}[!h]
 \centering
