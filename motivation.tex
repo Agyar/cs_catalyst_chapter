@@ -1,0 +1,79 @@
+\section{Motivation}
+\label{sec:motivation}
+
+Most numerical simulation engineers at EDF R\&D are currently visualizing lower
+temporal and spatial resolution versions of their simulations, in order to avoid
+I/O issues and cumbersome visualisation procedures, when large quantities of
+data are involved. We believe other industries dealing with large simulations
+are having the same problem. This is the reason why we decided to address the
+subject of coprocessing and in-situ visualization. Our aim was to provide our
+engineers with an operational research-oriented tool in a mid-term basis. For
+this, we have evaluated Catalyst as an industrial tool for performing In-Situ
+visualization. We believe that the experiences we found, positive and negative,
+are illuminating for the community, especially for the simulation teams
+(including simulation code developers and the visualization experts they work
+with) that are considering the transition to in situ processing.
+
+First of all, we believe that it is important to better describe the scope of
+our industrial visualisation solutions before in-situ processing was being
+tested. In table XXX we show the results of a simple subjective experiment
+conducted by one of our engineers. During 2012, she meshed a simple cube at
+different resolutions, using the SALOME platform, and then tried to visualise
+the results giving a subjective evaluation of how she could work. She used an
+EDF R\&D standard scientific PC that contains 8 Gb of RAM. The visualisation
+system of SALOME is an integration of ParaView. Table XXX clearly shows that she
+started working without an immediate system response for meshes which contain
+more that 10 Millions cells and for 50 Million cells the system was not
+responding. At the time of this test was done some of our R\&D engineers were
+already performing simulations with meshes of around 200 Millions cells and less
+than two years afterwards with 400 Millions cells. This implies that coping the
+results from the computer to their scientific stations is not possible because
+afterwards they will be block in their visualisation or other post-processing
+tasks. This is a serious bottleneck in an industrial system that motivated the
+beginning of this work.
+
+\begin{table}
+\centering
+\begin{tabular}{|p{1.5cm}|p{2.5cm}|p{2.50cm}|p{1.50cm}|p{1.50cm}|p{1.50cm}|}
+\hline
+\multicolumn{6}{|c|}{\textbf{MESH SIZE MANIPULATION EXPERIMENT}}\\
+\hline
+Number of cells & 10 Thousands & 100 Thousands & 1 Millions & 10 Millions & 50 Millions \\
+\hline
+RAM(\%) & <50\% & <50\% & <50\% & 100\% & Saturated \\
+\hline
+Reaction time & Inmediate & Inmediate & 2 to 3 seconds & Unconfortable & Not responding \\
+%\hline
+ %& & & \\
+%$CASE$\_$A$ & 51M hexahedrals, \newline industrial size case & \textbf{heavy}:
+%\newline volume rendering, \newline celldatatopointdata \newline and glyphs  &
+%5a 5c 5e\\
+\hline
+\end{tabular}
+%\vspace{-0.1in}
+\caption{Subjective characterization of the reaction time of the SALOME platform for different mesh sizes.}
+\label{fig:tab}
+%\end{figure}
+\vspace{-0.15in}
+\end{table}
+
+
+1) The user generates a ``light version'' of the mesh. This step has already been
+discussed in section~\ref{sec:pip_conf_tools}. Indeed, the user possess a CAD (Computer Aided
+Design) version of the geometry that is parametrized, it is then possible to
+obtain meshes at different spatial resolutions. A ``light mesh'' of small size in
+memory and representative of the CAD geometry is obtained. Figure~\ref{fig:piece} represents
+the ``light version'' of the mesh used in our experiments.
+
+
+3) The mesh and the fields obtained at the end of step 2 are read in ParaView
+and the user can define her/his visualisation pipeline. At the end of this step
+a simple click in the ParaView interface will create a Python file that
+programmatically defines the visualisation operations that will be performed
+$in$-$situ$.
+
+
+
+
+
+
