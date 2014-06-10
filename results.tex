@@ -168,42 +168,49 @@ the turbulent viscosity of the fluid.
 We establish first the overhead induced by storing our simulation results in
 figure~\ref{fig:over} and~\ref{fig:204over}. We observe an average of 18\% and
 14\% of time used to store results, for $CASE$\_$A$ and $CASE$\_$B$
-respectively. This overhead tends to increase with the number of processes in
+respectively. These figures correspond to the comparison of $T_w$ and $T_s + T_w$ in equation 1. 
+This overhead tends to increase with the number of processes in
 use. It is also not stable and subject to important variations with a peak at
 26\%. We thus emphasize the storing process as a bottleneck in every day CFD
 studies for its average overhead and its high instability in execution time.
 
-Figure~\ref{fig:copro} shows two graphs of
-$CASE$\_$A$: in red the execution 
+Figure~\ref{fig:copro} shows two graphs of $CASE$\_$A$: in red the execution 
 time versus the number of cores, in blue the execution time without
-the coprocessing overload. We are satisfied by this overload that is contained
-between 20 and 30\% of the total execution time. 
-It looks like this overload is reducing with the increase in number of cores. 
+the coprocessing overload. These figures correspond to the comparison of $T_s$ and $T_s + T_{process}$ in equation 2.
+We are satisfied by this overload that is contained between 20 and 30\% of the total execution time, 
+when we chose complicated task with a high $T_{process}$.
+Moreover, it looks like this overload is reducing with the increase in number of cores. 
 Figure~\ref{fig:204copro} shows the exact same behavior but with $CASE$\_$B$. Both
 graphs are difficult to distinguish as the time needed for coprocessing is
-circumscribed between 6 and 10 seconds, the overload is lesser than one
-percent of the total execution time.
+circumscribed between 6 and 10 seconds, the overload (the difference between $T_s$ and $T_s + T_{process}$) is lesser than one
+percent of the total execution time. We remark that having heavy $T_{process}$ is not very usual in our applications and 
+we include $CASE$\_$A$ as an example of worst case.
 
 We also decided to compare the Catalyst overhead with a non-VTK-based 
 storage strategy that performs no visualization operations. Figure~\ref{fig:ensight} and~\ref{fig:204ensight}, 
 show the comparison of the global execution time with Catalyst coprocessing
-versus the simple Ensight Gold format storage. Figure~\ref{fig:ensight} presents
+versus the simple Ensight Gold format storage. This means comparing $T_s + T_w$ 
+and $T_s + T_{process} + T_{w-in-situ}$. Figure~\ref{fig:ensight} presents
 our implementation results with $CASE$\_$A$. This compares positively for Catalyst as the overhead
-is approximately 10\% and looks decreasing when the number of cores increase.
-Figure~\ref{fig:204ensight} presents our results for $CASE$\_$B$. Here we can see the potential of Catalyst when 
+is approximately 10\% and looks decreasing when the number of cores increase. We
+remark that for $CASE$\_$A$ the heavy $T_{process}$ is already taken into
+account in the $in-situ$ curve but $T_r + T_v$ is still not performed for the
+traditional visualisation scheme. This means that this results is very positive
+and we should not forget that $T_r + T_v$ is very time consuming for this case
+(and saturates our scientific PCs at EDF R\&D). Figure~\ref{fig:204ensight}
+presents our results for $CASE$\_$B$. Here we can see the potential of Catalyst
+when 
 lighter and more relevant visualization tasks are processed. Indeed, there is no more 
 overhead as we gain an average of 10\% of execution time while freeing
 ourselves from storage issues (we evaluate the execution time peak of
 3000 processes as a result of concurrent accesses on our 
-supercomputer storage
-disks). To emphasize this, Table~\ref{fig:size_tab} shows how much data each
+supercomputer storage disks). To emphasize this, Table~\ref{fig:size_tab} shows how much data each
 solution generates, namely a basic storage in Ensight Gold format versus our
 coprocessing implementation using Catalyst. These informations are those of our
 CASE\_B when performing a 10 steps simulation. Both size are
 expected to grow proportionally to the size of the mesh input, and the number of
 steps. Therefore, we expect the gain provided by the use of coprocessing 
-to be
-increasingly interesting when moving forward in use case size.
+to be increasingly interesting when moving forward in use case size.
 
 %Finally, we also show the total memory use when running $in$-$situ$ visualization
 %compared to writing simulation results in Ensight Gold format in
