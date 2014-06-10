@@ -77,16 +77,18 @@ not generated.
 In order to get more insight, we can model the whole time taken by simulation
 and visualisation tasks as an addition of individual operations. For the
 traditional $a posteriori$ visualisation approach:
-\[
+\begin{equation}
   t_{posterior} = T_s + T_w  + T_r + T_v
-\]
+  \label{eq:first}
+\end{equation}
 where $T_s$ is the simulation time, $T_w$ is the time for writing the data,
 $T_r$ is the time to read the data (either in paralel or sequentially) and $T_v$
 is the time to perform visalisation operations and probably write visualisation
 results (like videos or graphs). For the in-situ approach:
-\[
+\begin{equation}
 t_{in-situ} = T_s + T_{process} + T_{w-in-situ} + T_{v-in-situ}
-\]
+  \label{eq:second}
+\end{equation}
 where $T_s$ is the simulation time (the same as in $t_{posterior}$),
 $T_{process}$
 is the time to perform the visualisation operations $in-situ$, $T_{w-in-situ}$

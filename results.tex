@@ -168,7 +168,8 @@ the turbulent viscosity of the fluid.
 We establish first the overhead induced by storing our simulation results in
 figure~\ref{fig:over} and~\ref{fig:204over}. We observe an average of 18\% and
 14\% of time used to store results, for $CASE$\_$A$ and $CASE$\_$B$
-respectively. These figures correspond to the comparison of $T_w$ and $T_s + T_w$ in equation 1. 
+respectively. These figures correspond to the comparison of $T_w$ and $T_s +
+T_w$ in equation~\ref{eq:first}. 
 This overhead tends to increase with the number of processes in
 use. It is also not stable and subject to important variations with a peak at
 26\%. We thus emphasize the storing process as a bottleneck in every day CFD
@@ -176,7 +177,8 @@ studies for its average overhead and its high instability in execution time.
 
 Figure~\ref{fig:copro} shows two graphs of $CASE$\_$A$: in red the execution 
 time versus the number of cores, in blue the execution time without
-the coprocessing overload. These figures correspond to the comparison of $T_s$ and $T_s + T_{process}$ in equation 2.
+the coprocessing overload. These figures correspond to the comparison of $T_s$
+and $T_s + T_{process}$ in equation~\ref{eq:second}.
 We are satisfied by this overload that is contained between 20 and 30\% of the total execution time, 
 when we chose complicated task with a high $T_{process}$.
 Moreover, it looks like this overload is reducing with the increase in number of cores. 
