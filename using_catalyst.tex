@@ -14,7 +14,10 @@ For simulation developers, Catalyst provides the tools to create an adaptor betw
 The adaptor binds the simulation code and Catalyst so that both the functions of the simulation code and the general-purpose application programming interface (API) of Catalyst can be accessed. As Catalyst itself is independent of the simulation code, only the adaptor has to be developed by the designers of the solver. This flexibility is critical in order to successfully integrate external code into complex simulations usually running with different languages and packages. Catalyst is also easily extensible so that users can deploy new analysis and visualization techniques to existing coprocessing installations. Catalyst provides all the communication and synchronization routine and the pipeline mechanics necessary for coprocessing. Catalyst also provides powerful data processing capabilities through VTK filters as well as many writers and support for compositing and rendering.
 
 Catalyst has also been developed with features to address limitations that come with pre-configuring a pipeline, but there may still be some unexpected data in the arbitrary simulation. To address these situations, the pipeline must be adjusted interactively.
-The Catalyst library can leverage ParaView's client server mechanism to allow an interactive ParaView client to connect to a server running inside an in situ pipeline. ParaView can then read from a Catalyst data source like it reads from a file. This offers to construct/modify a pipeline interactively in the ParaView client via this live data source. Additionally, by enabling the client-server architecture in the Catalyst library, some or all of the data analysis and visualization pipeline can offload, if desired, to a separate machine, e.g., a smaller visualization cluster with specialized graphics hardware.
+The Catalyst library can leverage ParaView's client server mechanism to allow an
+interactive ParaView client to connect to a server running inside an in situ
+pipeline. ParaView can then read from a Catalyst data source like it reads from
+a file. This enables construction/modification of a pipeline interactively in the ParaView client via this live data source. Additionally, by enabling the client-server architecture in the Catalyst library, some or all of the data analysis and visualization pipeline can offload, if desired, to a separate machine, e.g., a smaller visualization cluster with specialized graphics hardware.
 
 ~\
 \includegraphics[scale=0.47]{pictures/CatalystFullWorkFlow.eps}
@@ -92,14 +95,14 @@ address these issues by simply requesting a greater number of processors, but in
 not possible or practical. Therefore, great care must be taken in the construction of the adaptors.
 If memory is limited, the adaptor either uses complicated pointer manipulation or uses a smaller region
 of memory. If memory is not limited, then deep copy of the simulation data structures into a VTK
-data object doubles the resident memory, but also creates a CPU cost involved with copying data.
+data object doubles the resident memory, and also creates a CPU cost involved with copying data.
 The overriding overhead issue in embedding ParaView Catalyst in a simulation code is the memory
 management in an adaptor translating data structures in the running simulation.
 
 In order to coprocess the simulation data, Catalyst must be provided with the
 data formatted to the VTK data object structure. To accomplish this, several
 solutions are possible, essentially depending on the format used for the data
-of the simulation code. In the case when the format of the simulation code is
+of the simulation code. In the case where the format of the simulation code is
 similar to VTK  and, moreover, the simulation data can be shared at any time,
 then it is possible to feed Catalyst with a direct pointer to the simulation
 memory. This option is indeed preferred, when possible, as it allows to decrease the memory footprint.

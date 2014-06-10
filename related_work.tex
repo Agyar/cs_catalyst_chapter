@@ -3,7 +3,7 @@
 
 The size of generated data has become an important subject in high performance 
 computing, due to the need of a better input/output efficiency in our computing 
-system. To answer this problem, several visualization systems has been created.
+system. To answer this problem, several visualization systems have been created.
 We can distinguish two main approaches in recent solutions. The first one is to 
 integrate a specific $in$-$situ$ visualization directly to our simulation code. 
 Such an approach proved to be an efficient way to provide coprocessing for a given
@@ -37,19 +37,19 @@ library VTK, VisIt~\cite{1532795} and ParaView~\cite{964413} provide through
 libsim~\cite{2386230} and Catalyst~\cite{6092322} the possibility to coprocess
 simulation data.  Those $in$-$situ$ solutions are tightly coupled and while they
 limit potential interactions with the running simulation, they also highly
-reduce the need of network data transfer. Thus, it contributes at circumventing
+reduce the need of network data transfer. Thus, it contributes to circumventing
 the inefficiency of high performance computing input/output systems.
-Those solutions takes their benefits from directly accessing the simulation memory to
-perform visualization treatments by simply asking a pointer to the available
+Those solutions take their benefits from directly accessing the simulation memory to
+perform visualization treatments by simply asking for a pointer to the available
 data. One major drawback of this approach is the necessity to provide an
 understandable data layout to those libraries. Moreover, as this type of
 solution often gains from computing pre-determined visualization tasks, it is
 not suited for results exploration.  As building a steering solution for Code\_Saturne is out of
 the scope of this case study, we do not consider these drawbacks as a limitation. 
 
-After evaluating the performances offered by Kitware~\cite{6092322}, we choose Catalyst as our coprocessing library for our 
+After evaluating the performance solutions offered by Kitware~\cite{6092322}, we choose Catalyst as our coprocessing library for our 
 case study as it answers our visualization needs while focusing on the 
-reduce of data amount use. Ultimately, Kitware is still actively developing 
+reduce of data amount use. Further, Kitware is still actively developing 
 Catalyst, and we are optimistic that more services allowing the interactions
 with the running simulation will soon be available.
 

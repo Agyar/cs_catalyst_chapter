@@ -18,7 +18,7 @@ numerical simulations. It is based on an architecture made of reusable
 components. Among others, these components deal with: computer aided design,
 meshing, HPC execution management, multi-physics coupling, data post-processing
 and visualization. ParaView is currently integrated in this platform as a
-visualization module. \CS is often used coupled to the SALOME platform.
+visualization module. \CS is often used integrated in the SALOME platform.
 
 In the past, studies and improvements in scientific simulation have been mainly
 focused on the solver, due to being the most cycle-consuming part in the
@@ -34,27 +34,28 @@ used for the visualization are the source of a worrisome overhead. Even worse,
 some researchers are starting to spend more time for writing and reading data
 than for running solvers and visualizations~\cite{1742-6596-125-1-012099}.
 %Sometimes referred as Big Data, 
-This new trend is asking us to design new I/O strategies and consider
+This new trend compels us to design new I/O strategies and consider
 visualization as a part of our high-performance simulation systems.
 
-For some years, in-situ visualisation techniques have been successfully applied in different contexts, most of the time is research institutes. On the other side, we provide an overview of the efforts needed to transition a traditional simulation code to an $in-situ$ model in an industrial environment. This is the reason why care have been taken constructing uses cases that are representative of our current visualisation problems. 
+For some years, $in$-$situ$ visualisation techniques have been successfully applied in different contexts, most of the time is research institutes. On the other side, we provide an overview of the efforts needed to transition a traditional simulation code to an $in-situ$ model in an industrial environment. This is the reason why care have been taken constructing uses cases that are representative of our current visualisation problems. 
 
 Most fluid dynamic engineers at EDF R\&D are currently visualizing lower temporal and spatial 
 resolution versions of their simulations in order to avoid I/O issues when large quantities of data are involved.
-We decided to addres the subject of coprocessing and $in$-$situ$
+We decided to address the subject of coprocessing and $in$-$situ$
 visualization which has been proved to be an effective solution against the current
 limitations of this problem~\cite{sandiareport}, \cite{4090186}. Our aim is to provide 
 our engineers with an operational research-oriented tool in a mid-term basis.
 %Moreover, while visualization has been traditionnally performed on smaller
 %computer, studies show that visualization algorithms can often be run
 %efficiently on recent supercomputers~\cite{4090186}. 
-For this, we choose to evaluate Catalyst as an industrial tool for performing In-Situ visualization. 
-Catalyst, developed by Kitware, is a library for Paraview that implements the
-coprocessing, by defining the visualization process through Paraview and
+For this, we chose to evaluate Catalyst as an industrial tool for performing
+$in$-$situ$ visualization. 
+Catalyst, developed by Kitware, is a library for ParaView that implements the
+coprocessing, by defining the visualization process through ParaView and
 exploiting the VTK's parallel algorithms for the processing of the simulation
 data~\cite{6092322}. 
 
-In this article, we propose a study upon the effectiveness and scalability of a
+In this chapter, we report a study upon the effectiveness and scalability of a
 prototype implementation of the coprocessing in an industrial case based on the
 coupling of \CS with Catalyst. In section~\ref{sec:related} we
 discuss works related to recent visualization $in$-$situ$ systems. We will then
@@ -63,4 +64,4 @@ R\&D. In section ~\ref{sec:catalyst} we present our integration of Catalyst into
 \CS and how it is used by the users in the framework of fluid dynamic
 simulations. Section~\ref{sec:results} describes our use case and presents
 results on one of our corporate clusters. Finally, section~\ref{sec:conclusion} 
-presents our analysis of the results and describes our on-going and future work.
+presents our analysis of the results and describes our ongoing and future work.

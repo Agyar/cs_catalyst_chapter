@@ -23,13 +23,13 @@
   \hspace{8em}(b)  a final coprocessed picture of our simulation}
 \end{figure}
 
-Before presenting our results we briefly describe how the user interactions was
+Before presenting our results we briefly describe how the user interactions were
 performed. The following steps were necessary in order to use the developed
 coprocessing technology:
 
 
 1) The user generates a ``light version'' of the mesh. This step has already been
-discussed in section~\ref{sec:pip_conf_tools}. Indeed, the user possess a CAD (Computer Aided
+discussed in section~\ref{sec:pip_conf_tools}. Indeed, the user possesses a CAD (Computer Aided
 Design) version of the geometry that is parametrized, it is then possible to
 obtain meshes at different spatial resolutions. A ``light mesh'' of small size in
 memory and representative of the CAD geometry is obtained. Figure~\ref{fig:piece} represents
@@ -60,7 +60,7 @@ time-consuming.
 
 Our simulations have been run on Ivanoe, an EDF corporate supercomputer,
 composed of 1382 nodes, each node having 12 cores for a total of 16584 cores. In
-these simulations we associate one process by core and we use from 720 cores up
+these simulations we associate one MPI process by core and we use from 720 cores up
 to 3600 cores. We include two use cases that were run on this supercomputer. The
 choice of the cases is motivated by two main factors: the size of the mesh and
 the complexity of the visualization pipeline. Let us define in more detail why
@@ -69,7 +69,7 @@ these two factors:
 1) Mesh size. We chose to use two meshes representing the same geometry but at
 different resolutions, one made of 51M hexahedral elements and another of 204M
 hexahedrals. In our industrial environment at EDF most simulation engineers use
-meshes composed by less than 51M of element, then we choose this mesh size to be
+meshes composed by less than 51M of element, then we chose this mesh size to be
 representative of the work performed by an average engineer in his work routine.
 Furthermore, a 51M elements mesh more than doubles the size used in the results
 presented in~\cite{6092322} for the PHASTA adaptor. On the other side, when researcher
@@ -184,7 +184,7 @@ graphs are difficult to distinguish as the time needed for coprocessing is
 circumscribed between 6 and 10 seconds, the overload is lesser than one
 percent of the total execution time.
 
-We also decided to compare the Catalyst overhead with a non VTK based 
+We also decided to compare the Catalyst overhead with a non-VTK-based 
 storage strategy that performs no visualization operations. Figure~\ref{fig:ensight} and~\ref{fig:204ensight}, 
 show the comparison of the global execution time with Catalyst coprocessing
 versus the simple Ensight Gold format storage. Figure~\ref{fig:ensight} presents
@@ -193,10 +193,10 @@ is approximately 10\% and looks decreasing when the number of cores increase.
 Figure~\ref{fig:204ensight} presents our results for $CASE$\_$B$. Here we can see the potential of Catalyst when 
 lighter and more relevant visualization tasks are processed. Indeed, there is no more 
 overhead as we gain an average of 10\% of execution time while freeing
-ourselves from storage issues (indeed, we evaluate the execution time peak of
+ourselves from storage issues (we evaluate the execution time peak of
 3000 processes as a result of concurrent accesses on our 
 supercomputer storage
-disks). To emphasize this, table~\ref{fig:size_tab} shows how much data each
+disks). To emphasize this, Table~\ref{fig:size_tab} shows how much data each
 solution generates, namely a basic storage in Ensight Gold format versus our
 coprocessing implementation using Catalyst. These informations are those of our
 CASE\_B when performing a 10 steps simulation. Both size are

@@ -13,7 +13,7 @@ tracking, semi-transparent radiative transfer, gas combustion, pulverised coal
 combustion, electricity effects (Joule effect and electric arcs) and
 compressible flows. \CS relies on a finite volume discretisation and
 allows the use of various mesh types which may be hybrid (containing several
-kinds of elements) and may have structural non-conformities (hanging nodes).The
+kinds of elements) and may have structural non-conformities (hanging nodes). The
 parallelization is based on standard spatial partitioning with ghost cells
 that facilitate data passing between adjacent cells lying across the boundaries
 of disconnected parts using the Message Passing Interface. More
@@ -52,7 +52,7 @@ interactive tools and associated commands designed for data setup.
 To make the use of HPC as seamless as possible, without multiplying the
 number of tools or requiring complex libraries or dependencies,
 mesh, checkpoint/restart, and postprocessing output files
-are partitioning independent: in addition to the connectivity of each
+are partitioned independently: in addition to the connectivity of each
 local mesh, which is described with a local numbering, global ids are also
 maintained, for import and export purposes, and for ghost cell to
 local cell matching. Multiple ranks participate in reading and writing
