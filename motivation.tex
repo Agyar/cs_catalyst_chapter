@@ -75,29 +75,31 @@ In order to get more insight, we can model the whole time taken by simulation
 and visualisation tasks as an addition of individual operations. For the
 traditional $a posteriori$ visualisation approach:
 \[
-t_posterior = T_s + T_w  + T_r + T_v
+  t_{posterior} = T_s + T_w  + T_r + T_v
 \]
 where $T_s$ is the simulation time, $T_w$ is the time for writing the data,
 $T_r$ is the time to read the data (either in paralel or sequentially) and $T_v$
 is the time to perform visalisation operations and probably write visualisation
 results (like videos or graphs). For the in-situ approach:
 \[
-t_in-situ = T_s + T_process + T_w-in-situ + T_v-in-situ
+t_{in-situ} = T_s + T_{process} + T_{w-in-situ} + T_{v-in-situ}
 \]
-where $T_s$ is the simulation time (the same as in $t_posterior$), $T_process$
-is the time to perform the visualisation operations $in-situ$, $T_w-in-situ$ the
-time to store the already processed visualisation results and $T_v-in-situ$ the
-time that the engineer takes to visualize the videos or other pre-process data.
-Comparing this two formulas we can see that $t_posterior >>> t_in-situ$: we
-first skip writing and reading large volumes of data, $T_w  + T_r >>> T_process
-+ T_w-in-situ$; and also the visualisation time is reduced $T_v >>> T_v-in-situ$
-because, in the $a posteriori$ approach, visualising means performing operations
-on large data while in the $in-situ$ approach just lightweight data is involved.
-In the rest of the chapter these times will be exemplified, for instance, in the
-top two images of figure 5555 the reader can compare $T_w$ and $T_s + T_w$ for
-different simulations and the relationship $T_w  + T_r >>> T_process +
-T_w-in-situ$ becomes clear. These two images also exemplify how much I/O times
-grown, relative to solver times, which is at the origin of why we need $in-situ$
+where $T_s$ is the simulation time (the same as in $t_{posterior}$),
+$T_{process}$
+is the time to perform the visualisation operations $in-situ$, $T_{w-in-situ}$
+the time to store the already processed visualisation results and
+$T_{v-in-situ}$ the time that the engineer takes to visualize the videos or
+other pre-process data. Comparing this two formulas we can see that
+$t_{posterior} >>> t_{in-situ}$: we first skip writing and reading large volumes
+of data, $T_w  + T_r >>> T_{process} + T_{w-in-situ}$; and also the
+visualisation time is reduced $T_v >>> T_{v-in-situ}$ because, in the $a
+posteriori$ approach, visualising means performing operations on large data
+while in the $in-situ$ approach just lightweight data is involved.  In the rest
+of the chapter these times will be exemplified, for instance, in the top two
+images of figure 5555 the reader can compare $T_w$ and $T_s + T_w$ for different
+simulations and the relationship $T_w  + T_r >>> T_{process} + T_{w-in-situ}$
+becomes clear. These two images also exemplify how much I/O times grown,
+relative to solver times, which is at the origin of why we need $in-situ$
 techniques.
 
 In conclusion, the whole process of "simulation + visualisation" is faster when
