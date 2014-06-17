@@ -20,9 +20,8 @@ adaptor.
 The results presented are based on a 51M and a 204M elements mesh, which is
 above the average size case used by EDF engineers in our industrial environment.
 We plan to perform simulations on at least 400M elements meshes in the near
-future, using the same supercomputer. We have also performed simulations up to
-300 nodes and are currently planning not using more nodes. This is due to the
-typical simulation node size in Ivanhoe being around 150 nodes for our
+future, using the same supercomputer. We performed our simulations from 60 up to
+300 nodes. This is due to the typical simulation node size in Ivanhoe being around 150 nodes for our 
 engineers. We also plan to work on another of our corporate supercomputers, an
 IBM BG/Q with 65k cores. In that case, we will test on a much larger number of
 cores.
@@ -43,8 +42,7 @@ execution time by “not necessary data exchanges” among MPI ranks. We current
 use ParaView D3 filter (a filter originally performing a redistribution of the
 data among MPI processes) as a ghost cell handler. However, a new filter to perform 
 a direct generation of ghost cells from existing distributed data is currently
-being implemented by Kitware for ParaView/Catalyst. This development has
-been finished in December 2013 before this chapter is published.
+being implemented by Kitware for ParaView/Catalyst. 
 
 This chapter has been dedicated on how to deal with large data using visual
 co-processing but we are also testing the computational-steering capabilities of
