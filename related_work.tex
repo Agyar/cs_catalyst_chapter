@@ -10,7 +10,7 @@ Such approach proved to be an efficient way to provide co-processing for a given
 simulation as well as a visualization system as it is the case in the hurricane
 prediction~\cite{4015457} and earthquake simulation~\cite{4090186} systems.
 This method has been proven to lead to good performances but is limited 
-to a specific implementation, which does not apply directly to our needs.
+to a specific implementation.
 
 The second approach is to provide a general post-processing framework letting the
 simulation and the visualization code communicate together. EPSN which is a
@@ -49,7 +49,9 @@ the scope of this case study, we do not consider these drawbacks as a limitation
 
 After evaluating the performance solutions offered by ParaView and VTK, we choose Catalyst as 
 our co-processing library for our case study as it answers EDF's visualization 
-needs while focusing on the  reduce of data amount use. Further, Kitware is still actively developing 
-Catalyst, and we are optimistic that more services allowing the interactions
-with the running simulation will soon be available.
+needs while focusing on the  reduce of data amount use. %Further, Kitware is still actively developing 
+%Catalyst, and we are optimistic that more services allowing the interactions
+%with the running simulation will soon be available.
+Further, Kitware recently included services allowing the interactions with the
+running simulation, the so-called Live Catalyst.
 

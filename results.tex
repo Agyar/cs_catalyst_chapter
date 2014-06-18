@@ -61,10 +61,15 @@ the complexity of the visualization pipeline. We detail next these two impacting
 
 1) Mesh size. We chose to use two meshes representing the same geometry but at
 different resolutions, one made of 51M hexahedral elements and another of 204M
-hexahedrals. In our industrial environment at EDF most simulation engineers use
-meshes composed by less than 51M of element, that is why we chose this mesh size to be
-representative of the work performed by an average engineer during his work routine.
-Furthermore, a 51M elements mesh more than doubles the size used in the results
+hexahedrals. As we have already outlined in section~\ref{sec:motivation}, in our industrial environment, our
+simulation engineers are blocked when performing visualisation tasks on their
+PCs for meshes containing 50 M cells.
+We chose a 51M elements mesh as it is representative of a typical study 
+at EDF which will induce performance issues for the visualization process.
+%In our industrial environment at EDF most simulation engineers use
+%meshes composed by less than 51M of element, that is why we chose this mesh size to be
+%representative of the work performed by an average engineer during his work routine.
+Furthermore, it more than doubles the size used in the results
 presented in~\cite{6092322} for the PHASTA adaptor. On the other hand, when research
 oriented simulations are performed at EDF, these simulations currently contain around 200M
 elements. We choose this size as a typical research oriented or ``heavy mesh'' simulation data.
@@ -208,6 +213,15 @@ CASE\_B when performing a 10 steps simulation. Both size are
 expected to grow proportionally to the size of the mesh input, and the number of
 steps. Therefore, we expect the gain provided by the use of co-processing 
 to be increasingly interesting when moving forward in use case size.
+
+We also studied in~\cite{6675158} the total memory used when running in-situ
+visualization compared to writing simulation results in Ensight Gold
+format. We observe that memory consumption is
+increased by an approximate factor varying from 2 to 3. This can be explained by
+both our first naive memory management approach and also by a natural increase
+in memory consumption when visualization operations are to be performed.
+Concerning the memory management Kitware recently released the so-called ``zero-copy
+VTK'' that can be used to avoid naive deep copy of the simulation data structures.
 
 \begin{table}[!h]
 \centering

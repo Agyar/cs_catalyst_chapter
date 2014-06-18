@@ -62,7 +62,7 @@ by the numerical simulations. In general, such
 a system (in our case a ParaView ``pvserver'') is installed on a visualisation
 cluster; the system reads the data from disk and performs the visualisation operations in
 parallel, while streaming images (or small 3D models) to a remote client hosted on a standard PC. 
-EDF R\&D owns a visualisation cluster as part of its HPC cluster ``Ivanoe'', which will
+EDF R\&D owns a visualisation cluster as part of its HPC cluster ``Ivanhoe'', which will
 be described later in this chapter. This type of solution implies writing and 
 reading large data in parallel. Even if
 these operations are performed on a cluster with a fast distributed file system,
@@ -71,7 +71,7 @@ are potentially never generated.
 
 In order to get more insight, we can model the whole time taken by simulation
 and visualisation tasks as an addition of individual operations. For the
-traditional $a posteriori$ visualisation approach:
+traditional $a$ $posteriori$ visualisation approach:
 \begin{equation}
   t_{posterior} = T_s + T_w  + T_r + T_v
   \label{eq:first}
@@ -89,12 +89,12 @@ $T_{process}$
 is the time to perform the visualisation operations $in$-$situ$, $T_{w-in-situ}$
 the time to store the already processed visualisation results and
 $T_{v-in-situ}$ the time that the engineer takes to visualize the videos or
-other pre-process data. Comparing this two formulas we can see that
+other pre-processed data. Comparing these two formulas we can see that
 $t_{posterior} >>> t_{in-situ}$ as, in the case of $in$-$situ$, we skip writing and reading large volumes
 of data, $T_w  + T_r >>> T_{process} + T_{w-in-situ}$; but also the
-visualisation time is reduced $T_v >>> T_{v-in-situ}$ because, in the $a
-posteriori$ approach, visualising means performing operations on large data
-while in the $in-situ$ approach only lightweight data is involved. In the rest
+visualisation time is reduced $T_v >>> T_{v-in-situ}$ because, in the $a$ 
+$posteriori$ approach, visualising means performing operations on large data
+while in the $in$-$situ$ approach only lightweight data is involved. In the rest
 of this chapter these times will be exemplified. For instance, in the top two
 images of figure~\ref{fig:animals} one can compare $T_w$ and $T_s + T_w$ for different
 simulations and the relationship $T_w  + T_r >>> T_{process} + T_{w-in-situ}$

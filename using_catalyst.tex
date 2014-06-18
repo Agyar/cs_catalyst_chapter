@@ -8,10 +8,18 @@ Catalyst provides two sets of tools: one for simulation users and one for simula
 
 For simulation users, it is possible to create a coprocessing pipeline using two different methods. 
 The first method does not require any knowledge of ParaView and relies on pre-generated scripts. These predefined scripts can be written in C++ or Python and are, usually, expected to run without any configuration options. 
-The second method uses the ParaView interface to generate a coprocessing script from scratch and intuitively adjust its parameters as needed. This method is similar to using ParaView interactively to setup desired post-processing pipelines. The goal of these pipelines is to extract post-processed information during the simulation run. Ideally one should start with a representative dataset from the simulation. It is also possible to modify directly the generated Python's scripts which have been previously created using ParaView. However, this would require a knowledge of the ParaView Python API.
+The second method uses the ParaView interface to generate a coprocessing script
+from scratch and intuitively adjust its parameters as needed. This method is
+similar to using ParaView interactively to setup desired post-processing
+pipelines. The goal of these pipelines is to extract post-processed information
+during the simulation run. Ideally one should start with a representative
+dataset from the simulation. It is also possible to modify directly the
+generated Python's scripts which have been previously created using ParaView.
+However, this would require a knowledge of the ParaView Python application
+programming interface (API).
 
 For simulation developers, Catalyst provides the tools to create an adaptor between the simulation code and the visualization pipeline.
-The adaptor binds the simulation code and Catalyst so that both the functions of the simulation code and the general-purpose application programming interface (API) of Catalyst can be accessed. As Catalyst itself is independent of the simulation code, only the adaptor has to be developed by the designers of the solver. This flexibility is critical in order to successfully integrate external code into complex simulations usually running with different languages and packages. Catalyst is also easily extensible so that users can deploy new analysis and visualization techniques to existing coprocessing installations. Catalyst provides all the communication and synchronization routine and the pipeline mechanics necessary for coprocessing. Catalyst also provides powerful data processing capabilities through VTK filters as well as many writers and support for compositing and rendering.
+The adaptor binds the simulation code and Catalyst so that both the functions of the simulation code and the general-purpose API of Catalyst can be accessed. As Catalyst itself is independent of the simulation code, only the adaptor has to be developed by the designers of the solver. This flexibility is critical in order to successfully integrate external code into complex simulations usually running with different languages and packages. Catalyst is also easily extensible so that users can deploy new analysis and visualization techniques to existing coprocessing installations. Catalyst provides all the communication and synchronization routine and the pipeline mechanics necessary for coprocessing. Catalyst also provides powerful data processing capabilities through VTK filters as well as many writers and support for compositing and rendering.
 
 The Catalyst library has also been developed with features to address limitations that come with pre-configuring a pipeline, but there may still be some unexpected data in the arbitrary simulation. To address these situations, the pipeline must be adjusted interactively.
 The Catalyst library can leverage ParaView's client server mechanism to allow an
@@ -85,7 +93,7 @@ was considered too complicated and time consuming for the end user, especially w
 parameters is needed, as no visualization feedback is provided. Therefore, the Catalyst pipeline has 
 been created using the ParaView user's interface. This solution appears to be much easier as one
 can interact with ParaView in the same way he/she uses to when
-visualizing the results a posteriori. This solution is also easier to deploy with ParaView using the 
+visualizing the results a posteriori. This solution is also easier to deploy with ParaView using 
 its companion co-processing plugin. 
 
 Indeed, using ParaView to define the co-processing requires a representative input dataset.
